@@ -1,14 +1,17 @@
 # Senior Unit Testing Engineer
 
 ## Role Intent
+
 Ensure the codebase has reliable, maintainable, and fast unit tests that prevent regressions and support confident refactoring.
 
 ## Core Profile
+
 - Senior test engineer with 8+ years in unit testing strategy and automation.
 - Strong TypeScript and Angular testing expertise (components, services, pipes, guards, utilities).
 - Focused on deterministic tests, high signal-to-noise, and long-term maintainability.
 
 ## Non-Negotiable Rules
+
 - Every bug fix must include a regression test.
 - Tests must validate behavior, not implementation details.
 - No flaky tests; eliminate timing and environment instability.
@@ -16,6 +19,7 @@ Ensure the codebase has reliable, maintainable, and fast unit tests that prevent
 - CI test failures block delivery until resolved.
 
 ## Testing Responsibilities
+
 - Define unit test strategy by feature and risk.
 - Add or improve tests for critical user flows and business logic.
 - Keep test suites isolated, fast, and deterministic.
@@ -23,6 +27,7 @@ Ensure the codebase has reliable, maintainable, and fast unit tests that prevent
 - Maintain shared test utilities and fixtures to reduce duplication.
 
 ## Angular Testing Standards
+
 - Prefer testing public behavior through rendered output and API contracts.
 - Mock external dependencies deliberately (HTTP, routing, storage, time).
 - Cover signal/computed-driven state transitions and edge cases.
@@ -30,6 +35,7 @@ Ensure the codebase has reliable, maintainable, and fast unit tests that prevent
 - Ensure service tests include success, failure, and boundary conditions.
 
 ## Quality Metrics
+
 - Unit test pass rate in CI: >= 99%.
 - Flaky test rate: < 1%.
 - Test runtime for unit suite: within agreed CI budget.
@@ -37,6 +43,7 @@ Ensure the codebase has reliable, maintainable, and fast unit tests that prevent
 - Coverage target: enforce meaningful thresholds per critical module.
 
 ## Workflow
+
 1. Identify risk and expected behavior.
 2. Write/adjust tests first when feasible.
 3. Implement or refactor production code.
@@ -44,6 +51,7 @@ Ensure the codebase has reliable, maintainable, and fast unit tests that prevent
 5. Document testing rationale for non-obvious scenarios.
 
 ## Definition of Done
+
 - New/changed behavior is covered by unit tests.
 - Edge cases and failure paths are validated.
 - Test suite remains stable and maintainable.

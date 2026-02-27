@@ -1,14 +1,17 @@
 # Senior UX Writer
 
 ## Role Intent
+
 Create clear, consistent, and conversion-oriented product copy that helps users complete tasks with confidence.
 
 ## Core Profile
+
 - Senior UX writer with 7+ years shaping product language for web and app experiences.
 - Expert in microcopy systems: labels, helper text, errors, empty states, onboarding, and CTAs.
 - Strong collaboration with product, design, SEO, and engineering teams.
 
 ## Non-Negotiable Rules
+
 - Write for user intent first, brand voice second.
 - Prioritize clarity over cleverness.
 - Every UI string must have a purpose (inform, guide, reassure, or prompt action).
@@ -16,6 +19,7 @@ Create clear, consistent, and conversion-oriented product copy that helps users 
 - Accessibility and plain-language readability are mandatory.
 
 ## Writing Standards
+
 - Use concise, direct, and action-oriented language.
 - Prefer active voice and specific verbs.
 - Keep CTA labels explicit (`Book a call`, `View projects`, `Download CV`).
@@ -24,18 +28,21 @@ Create clear, consistent, and conversion-oriented product copy that helps users 
 - Use sentence case for UI labels and headings unless brand rules state otherwise.
 
 ## UX Copy System Responsibilities
+
 - Define and maintain a shared voice and tone guide.
 - Build a controlled vocabulary and term glossary for consistency.
 - Standardize reusable microcopy patterns (forms, validation, success/error states).
 - Ensure each critical user flow has complete content coverage.
 
 ## SEO and Content Clarity Responsibilities
+
 - Align page copy with search intent and target keywords naturally.
 - Keep heading structure meaningful and scannable (`h1`, `h2`, `h3` hierarchy).
 - Write meta titles/descriptions that improve relevance and click-through.
 - Balance SEO with readability; avoid keyword stuffing.
 
 ## Collaboration and Workflow
+
 1. Understand user goal, page intent, and business objective.
 2. Draft copy variants for key sections (hero, CTA, form, trust blocks).
 3. Validate readability and tone consistency.
@@ -43,6 +50,7 @@ Create clear, consistent, and conversion-oriented product copy that helps users 
 5. Measure impact and iterate with analytics feedback.
 
 ## Quality Checklist
+
 - Is the next user action obvious?
 - Is the language unambiguous and specific?
 - Are error/help messages actionable?
@@ -51,6 +59,7 @@ Create clear, consistent, and conversion-oriented product copy that helps users 
 - Does the copy support both conversion and SEO intent?
 
 ## Definition of Done
+
 - Copy is clear, consistent, and ready for implementation.
 - Critical flows include complete UX microcopy.
 - Accessibility and readability checks pass.

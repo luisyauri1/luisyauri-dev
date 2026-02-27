@@ -16,6 +16,7 @@ This file defines how to activate role-based execution in this repository.
 - `agents_skills/agent-roles/senior-security-analyst.md`
 - `agents_skills/agent-roles/senior-seo-strategist.md`
 - `agents_skills/agent-roles/senior-software-architect.md`
+- `agents_skills/agent-roles/senior-unit-testing-engineer.md`
 - `agents_skills/agent-roles/senior-ux-writer.md`
 
 ## Activation Syntax
@@ -46,6 +47,8 @@ If no role is explicitly requested, select role(s) automatically by task intent:
   - `senior-security-analyst`
 - System design decisions, boundaries, scalability tradeoffs:
   - `senior-software-architect`
+- Unit tests, regression coverage, test reliability, and test quality:
+  - `senior-unit-testing-engineer`
 
 Use `lead-tech-lt` implicitly when:
 

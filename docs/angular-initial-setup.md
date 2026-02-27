@@ -90,6 +90,48 @@ npm run build
 
 Si todo pasa, el baseline está listo.
 
+## 7) Commit conventions automáticas (Husky + Commitlint)
+
+Instalar:
+
+```bash
+npm install -D husky @commitlint/cli @commitlint/config-conventional
+```
+
+Activar Husky:
+
+```bash
+npm pkg set scripts.prepare="husky"
+npm run prepare
+```
+
+Crear `commitlint.config.mjs`:
+
+```js
+export default {
+  extends: ['@commitlint/config-conventional'],
+};
+```
+
+Crear hook `.husky/commit-msg`:
+
+```sh
+#!/usr/bin/env sh
+npx --no -- commitlint --edit "$1"
+```
+
+Comprobar:
+
+```bash
+echo "bad message" | npx commitlint
+echo "docs(setup): add baseline" | npx commitlint
+```
+
+Resultado esperado:
+
+- El primer mensaje falla.
+- El segundo mensaje pasa.
+
 ## Problemas comunes que esta guía evita
 
 - Warning de deprecación por usar `tseslint.config(...)`.

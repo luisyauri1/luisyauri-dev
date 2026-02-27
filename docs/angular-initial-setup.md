@@ -65,32 +65,55 @@ Crear `.prettierignore`:
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "npm run lint && npm run format:check && npm run test && npm run build"
+    "test:ci": "ng test --watch=false",
+    "check": "npm run lint && npm run format:check && npm run test:ci && npm run build"
   }
 }
 ```
 
-## 5) VS Code (evitar avisos falsos/deprecados)
+## 5) Testing baseline con coverage (90%)
+
+Instalar provider de coverage para Vitest:
+
+```bash
+npm install -D @vitest/coverage-v8
+```
+
+Configurar en `angular.json` (`architect.test.options`):
+
+- `"coverage": true`
+- `"coverageThresholds"` con:
+  - `statements: 90`
+  - `branches: 90`
+  - `functions: 90`
+  - `lines: 90`
+
+Política:
+
+- Todo bugfix debe incluir test de regresión.
+- Si la cobertura baja de 90%, el pipeline debe fallar.
+
+## 6) VS Code (evitar avisos falsos/deprecados)
 
 Crear `.vscode/settings.json`:
 
 - `"eslint.useFlatConfig": true`
 - `"eslint.validate": ["typescript", "html"]`
 
-## 6) Validación final
+## 7) Validación final
 
 Ejecutar:
 
 ```bash
 npm run lint
 npm run format:check
-npm run test
+npm run test:ci
 npm run build
 ```
 
 Si todo pasa, el baseline está listo.
 
-## 7) Commit conventions automáticas (Husky + Commitlint)
+## 8) Commit conventions automáticas (Husky + Commitlint)
 
 Instalar:
 
@@ -116,7 +139,6 @@ export default {
 Crear hook `.husky/commit-msg`:
 
 ```sh
-#!/usr/bin/env sh
 npx --no -- commitlint --edit "$1"
 ```
 

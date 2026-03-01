@@ -6,9 +6,18 @@
   position: sticky;
   top: 0;
   z-index: 30;
-  border-bottom: 1px solid rgb(255 255 255 / 0.08);
-  background:
-    linear-gradient(180deg, rgb(0 0 0 / 0.84) 0%, rgb(0 0 0 / 0.78) 100%), var(--color-bg-canvas);
+  border-bottom: 1px solid rgb(255 255 255 / 0.02);
+  background: rgb(7 7 7 / 0.18);
+  backdrop-filter: blur(2px);
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    backdrop-filter 220ms ease;
+}
+
+.site-header.site-header--scrolled {
+  border-bottom-color: rgb(255 255 255 / 0.1);
+  background: rgb(7 7 7 / 0.74);
   backdrop-filter: blur(12px);
 }
 

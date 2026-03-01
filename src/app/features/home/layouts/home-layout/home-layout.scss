@@ -1,0 +1,67 @@
+.home-layout {
+  position: relative;
+  min-height: 100dvh;
+  background: var(--color-bg-canvas);
+  overflow: clip;
+}
+
+.home-layout__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home-layout__orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(48px);
+  opacity: 0.5;
+}
+
+.home-layout__orb--top-left {
+  top: -14rem;
+  left: -12rem;
+  width: 42rem;
+  height: 42rem;
+  background: radial-gradient(circle, rgb(186 71 86 / 0.5) 0%, rgb(186 71 86 / 0) 68%);
+}
+
+.home-layout__orb--center {
+  top: 36%;
+  left: 48%;
+  width: 32rem;
+  height: 32rem;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgb(255 255 255 / 0.18) 0%, rgb(255 255 255 / 0) 72%);
+}
+
+.home-layout__orb--bottom-right {
+  right: -15rem;
+  bottom: -16rem;
+  width: 48rem;
+  height: 48rem;
+  background: radial-gradient(circle, rgb(186 71 86 / 0.5) 0%, rgb(186 71 86 / 0) 68%);
+}
+
+.home-layout__orb--left-soft {
+  top: 52%;
+  left: -10rem;
+  width: 24rem;
+  height: 24rem;
+  background: radial-gradient(circle, rgb(255 255 255 / 0.09) 0%, rgb(255 255 255 / 0) 74%);
+}
+
+.home-layout__orb--right-soft {
+  top: 10%;
+  right: -8rem;
+  width: 22rem;
+  height: 22rem;
+  background: radial-gradient(circle, rgb(255 255 255 / 0.08) 0%, rgb(255 255 255 / 0) 74%);
+}
+
+.home-layout__content {
+  position: relative;
+  z-index: 1;
+  min-height: calc(100dvh - 4.75rem);
+}

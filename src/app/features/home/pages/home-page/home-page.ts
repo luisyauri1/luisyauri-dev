@@ -4,19 +4,10 @@ import { HomeExperienceHighlights } from '../../components/home-experience-highl
 import { HomeHero } from '../../components/home-hero/home-hero';
 import { HomeSkillsOverview } from '../../components/home-skills-overview/home-skills-overview';
 import { SeoService } from '@core/seo/seo.service';
-import { SiteFooter } from '@shared/components/site-footer/site-footer';
-import { SiteHeader } from '@shared/components/site-header/site-header';
 
 @Component({
   selector: 'app-home-page',
-  imports: [
-    SiteHeader,
-    HomeHero,
-    HomeExperienceHighlights,
-    HomeSkillsOverview,
-    HomeContactCta,
-    SiteFooter,
-  ],
+  imports: [HomeHero, HomeExperienceHighlights, HomeSkillsOverview, HomeContactCta],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })

@@ -128,6 +128,22 @@ describe('SiteHeader', () => {
     });
   });
 
+  describe('header scroll style', () => {
+    it('should keep scrolled state disabled at top of page', () => {
+      Object.defineProperty(window, 'scrollY', { value: 0, configurable: true });
+      (component as unknown as { onWindowScroll: () => void }).onWindowScroll();
+
+      expect((component as unknown as { headerScrolled: boolean }).headerScrolled).toBe(false);
+    });
+
+    it('should enable scrolled state after passing threshold', () => {
+      Object.defineProperty(window, 'scrollY', { value: 48, configurable: true });
+      (component as unknown as { onWindowScroll: () => void }).onWindowScroll();
+
+      expect((component as unknown as { headerScrolled: boolean }).headerScrolled).toBe(true);
+    });
+  });
+
   it('should close menu on escape key event', () => {
     fixture.detectChanges();
     const toggleButton = fixture.nativeElement.querySelector(

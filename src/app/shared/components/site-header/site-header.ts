@@ -14,14 +14,18 @@ type NavItem = {
   templateUrl: './site-header.html',
   styleUrl: './site-header.scss',
   host: {
+    '[class.site-header--scrolled]': 'headerScrolled',
     '(document:keydown.escape)': 'onEscapeKey()',
+    '(window:scroll)': 'onWindowScroll()',
   },
 })
 export class SiteHeader implements OnDestroy {
   private readonly document = inject(DOCUMENT);
   private readonly bodyLockClass = 'is-mobile-menu-open';
+  private readonly scrollThreshold = 14;
 
   protected mobileMenuOpen = false;
+  protected headerScrolled = (this.document.defaultView?.scrollY ?? 0) > this.scrollThreshold;
   protected readonly menuIcon = Menu;
   protected readonly closeIcon = X;
   protected readonly linkIcon = ArrowUpRight;
@@ -44,6 +48,11 @@ export class SiteHeader implements OnDestroy {
     if (this.mobileMenuOpen) {
       this.closeMobileMenu();
     }
+  }
+
+  protected onWindowScroll(): void {
+    const currentScroll = this.document.defaultView?.scrollY ?? 0;
+    this.headerScrolled = currentScroll > this.scrollThreshold;
   }
 
   ngOnDestroy(): void {

@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { SiteFooter } from '../../../../shared/components/site-footer/site-footer';
-import { SiteHeader } from '../../../../shared/components/site-header/site-header';
-import { SeoService } from '../../../../core/seo/seo.service';
+import { SeoService } from '@core/seo/seo.service';
+import { SiteFooter } from '@shared/components/site-footer/site-footer';
+import { SiteHeader } from '@shared/components/site-header/site-header';
 
 @Component({
   selector: 'app-projects-page',

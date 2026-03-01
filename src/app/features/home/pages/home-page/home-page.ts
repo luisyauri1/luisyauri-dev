@@ -3,9 +3,9 @@ import { HomeContactCta } from '../../components/home-contact-cta/home-contact-c
 import { HomeExperienceHighlights } from '../../components/home-experience-highlights/home-experience-highlights';
 import { HomeHero } from '../../components/home-hero/home-hero';
 import { HomeSkillsOverview } from '../../components/home-skills-overview/home-skills-overview';
-import { SiteFooter } from '../../../../shared/components/site-footer/site-footer';
-import { SiteHeader } from '../../../../shared/components/site-header/site-header';
-import { SeoService } from '../../../../core/seo/seo.service';
+import { SeoService } from '@core/seo/seo.service';
+import { SiteFooter } from '@shared/components/site-footer/site-footer';
+import { SiteHeader } from '@shared/components/site-header/site-header';
 
 @Component({
   selector: 'app-home-page',

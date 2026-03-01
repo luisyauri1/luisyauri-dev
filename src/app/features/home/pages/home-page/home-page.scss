@@ -1,5 +1,19 @@
+@use 'mixins' as m;
+
 .home-page {
   display: grid;
   align-items: center;
-  padding-block: var(--space-12);
+  padding-block: var(--space-2);
+}
+
+@include m.mq-up(md) {
+  .home-page {
+    padding-block: var(--space-10);
+  }
+}
+
+@include m.mq-up(lg) {
+  .home-page {
+    padding-block: var(--space-12);
+  }
 }

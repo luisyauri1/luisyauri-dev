@@ -1,0 +1,14 @@
+<section id="experiencia" class="experience-block" aria-labelledby="experience-title">
+  <p class="experience-block__eyebrow">Perfil técnico</p>
+  <h2 id="experience-title">Experiencia Profesional</h2>
+
+  <div class="experience-block__grid">
+    @for (item of highlights; track item.title) {
+      <article class="experience-card">
+        <h3>{{ item.title }}</h3>
+        <p class="experience-card__period">{{ item.period }}</p>
+        <p>{{ item.description }}</p>
+      </article>
+    }
+  </div>
+</section>

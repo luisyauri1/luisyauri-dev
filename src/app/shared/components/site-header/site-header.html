@@ -1,0 +1,13 @@
+<header class="site-header">
+  <div class="site-header__inner container">
+    <a class="site-header__logo" href="/" aria-label="Ir al inicio"> luisyauri.dev </a>
+
+    <nav class="site-header__nav" aria-label="Navegacion principal">
+      @for (item of navItems; track item.href) {
+        <a [href]="item.href">{{ item.label }}</a>
+      }
+    </nav>
+
+    <app-ui-button class="site-header__cta" label="Contactar" href="#contacto" />
+  </div>
+</header>

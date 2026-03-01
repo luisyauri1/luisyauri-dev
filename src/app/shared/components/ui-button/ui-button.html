@@ -1,0 +1,19 @@
+@if (href) {
+  <a
+    class="ui-button"
+    [class.ui-button--ghost]="variant === 'ghost'"
+    [class.ui-button--primary]="variant === 'primary'"
+    [href]="href"
+  >
+    {{ label }}
+  </a>
+} @else {
+  <button
+    class="ui-button"
+    [class.ui-button--ghost]="variant === 'ghost'"
+    [class.ui-button--primary]="variant === 'primary'"
+    [type]="type"
+  >
+    {{ label }}
+  </button>
+}

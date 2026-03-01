@@ -1,5 +1,5 @@
 .home-page {
-  min-height: 100vh;
+  min-height: calc(100vh - 4.5rem);
   display: grid;
   place-items: center;
   padding-block: var(--space-12);

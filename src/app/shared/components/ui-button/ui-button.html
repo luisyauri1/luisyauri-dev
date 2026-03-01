@@ -3,17 +3,47 @@
     class="ui-button"
     [class.ui-button--ghost]="variant === 'ghost'"
     [class.ui-button--primary]="variant === 'primary'"
+    [class.ui-button--sm]="size === 'sm'"
+    [class.ui-button--icon-only]="iconOnly"
     [href]="href"
+    [attr.aria-label]="iconOnly ? computedAriaLabel : null"
+    [attr.aria-controls]="ariaControls ?? null"
+    [attr.aria-expanded]="ariaExpanded ?? null"
   >
-    {{ label }}
+    @if (icon && iconPosition === 'left') {
+      <lucide-angular class="ui-button__icon" [img]="icon" [size]="iconSize" />
+    }
+
+    @if (!iconOnly) {
+      <span>{{ label }}</span>
+    }
+
+    @if (icon && iconPosition === 'right') {
+      <lucide-angular class="ui-button__icon" [img]="icon" [size]="iconSize" />
+    }
   </a>
 } @else {
   <button
     class="ui-button"
     [class.ui-button--ghost]="variant === 'ghost'"
     [class.ui-button--primary]="variant === 'primary'"
+    [class.ui-button--sm]="size === 'sm'"
+    [class.ui-button--icon-only]="iconOnly"
     [type]="type"
+    [attr.aria-label]="iconOnly ? computedAriaLabel : null"
+    [attr.aria-controls]="ariaControls ?? null"
+    [attr.aria-expanded]="ariaExpanded ?? null"
   >
-    {{ label }}
+    @if (icon && iconPosition === 'left') {
+      <lucide-angular class="ui-button__icon" [img]="icon" [size]="iconSize" />
+    }
+
+    @if (!iconOnly) {
+      <span>{{ label }}</span>
+    }
+
+    @if (icon && iconPosition === 'right') {
+      <lucide-angular class="ui-button__icon" [img]="icon" [size]="iconSize" />
+    }
   </button>
 }

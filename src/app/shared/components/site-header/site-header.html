@@ -1,13 +1,64 @@
 <header class="site-header">
   <div class="site-header__inner container">
-    <a class="site-header__logo" href="/" aria-label="Ir al inicio"> luisyauri.dev </a>
+    <a class="site-header__logo" href="/" aria-label="Ir al inicio">
+      <span class="site-header__logo-main">luisyauri</span>
+      <span class="site-header__logo-dot">.</span>
+      <span class="site-header__logo-dev">dev</span>
+    </a>
 
-    <nav class="site-header__nav" aria-label="Navegacion principal">
+    <nav class="site-header__nav" aria-label="Navegacion principal en desktop">
       @for (item of navItems; track item.href) {
-        <a [href]="item.href">{{ item.label }}</a>
+        <a class="site-header__nav-link" [href]="item.href">{{ item.label }}</a>
       }
     </nav>
+
+    <app-ui-button
+      class="site-header__menu-toggle"
+      variant="ghost"
+      size="sm"
+      [iconOnly]="true"
+      [icon]="mobileMenuOpen ? closeIcon : menuIcon"
+      [ariaLabel]="mobileMenuOpen ? 'Cerrar menu de navegacion' : 'Abrir menu de navegacion'"
+      ariaControls="site-mobile-menu"
+      [ariaExpanded]="mobileMenuOpen"
+      (click)="toggleMobileMenu()"
+    />
 
     <app-ui-button class="site-header__cta" label="Contactar" href="#contacto" />
   </div>
 </header>
+
+@if (mobileMenuOpen) {
+  <div class="site-header__mobile-overlay" id="site-mobile-menu" role="dialog" aria-modal="true">
+    <div class="site-header__mobile-overlay-inner container">
+      <div class="site-header__mobile-topbar">
+        <span class="site-header__mobile-title">Menu</span>
+        <app-ui-button
+          class="site-header__mobile-close"
+          variant="ghost"
+          size="sm"
+          [iconOnly]="true"
+          [icon]="closeIcon"
+          ariaLabel="Cerrar menu de navegacion"
+          (click)="closeMobileMenu()"
+        />
+      </div>
+
+      <nav class="site-header__mobile-menu" aria-label="Navegacion principal en mobile">
+        @for (item of navItems; track item.href) {
+          <a class="site-header__mobile-link" [href]="item.href" (click)="closeMobileMenu()">
+            <span>{{ item.label }}</span>
+            <lucide-angular [img]="linkIcon" [size]="16" />
+          </a>
+        }
+      </nav>
+
+      <app-ui-button
+        class="site-header__mobile-cta"
+        label="Contactar"
+        href="#contacto"
+        (click)="closeMobileMenu()"
+      />
+    </div>
+  </div>
+}

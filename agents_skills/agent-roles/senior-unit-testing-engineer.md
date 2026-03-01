@@ -44,8 +44,8 @@ Ensure the codebase has reliable, maintainable, and fast unit tests that prevent
 - Separate `Arrange`, `Act`, and `Assert` blocks with one blank line for visual clarity.
 - Keep each `it` focused on one observable behavior.
 - Do not add inline test comments like `// Arrange`, `// Act`, or `// Assert`.
-- Only introduce nested `describe` blocks when a parent group has more than 2 related `it` cases.
-- If a group has 1 or 2 tests, prefer plain `it` blocks under the parent `describe`.
+- Introduce nested `describe` blocks only when grouping 2 or more related `it` cases.
+- Never create a `describe` with only 1 `it`; keep that case as a plain `it` in the parent scope.
 - Group related behaviors under one `describe` and split each assertion into its own `it`.
 
 ## Quality Metrics

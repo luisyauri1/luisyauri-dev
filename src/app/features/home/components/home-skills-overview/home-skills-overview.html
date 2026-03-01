@@ -1,0 +1,17 @@
+<section id="skills" class="skills-block" aria-labelledby="skills-title">
+  <p class="skills-block__eyebrow">Stack profesional</p>
+  <h2 id="skills-title">Skills Clave</h2>
+
+  <div class="skills-block__grid">
+    @for (group of skillsGroups; track group.title) {
+      <article class="skills-card">
+        <h3>{{ group.title }}</h3>
+        <ul>
+          @for (item of group.items; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </article>
+    }
+  </div>
+</section>

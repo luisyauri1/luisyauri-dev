@@ -3,7 +3,7 @@
 .home-page {
   display: grid;
   align-items: center;
-  padding-block: var(--space-2);
+  padding-block: var(--space-1);
 }
 
 @include m.mq-up(md) {

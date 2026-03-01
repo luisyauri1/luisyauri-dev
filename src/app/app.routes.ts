@@ -7,6 +7,7 @@ export const routes: Routes = [
   },
   {
     path: 'projects',
+    title: 'Proyectos | Luis Yauri',
     loadComponent: () =>
       import('./features/projects/pages/projects-page/projects-page').then(
         (module) => module.ProjectsPage,

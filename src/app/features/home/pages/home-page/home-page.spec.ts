@@ -24,18 +24,39 @@ describe('HomePage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should configure seo metadata for home', () => {
-    fixture.detectChanges();
+  describe('seo metadata', () => {
+    it('should set page title', () => {
+      fixture.detectChanges();
 
-    const title = TestBed.inject(Title);
-    const meta = TestBed.inject(Meta);
-    const document = TestBed.inject(DOCUMENT);
+      const title = TestBed.inject(Title);
 
-    expect(title.getTitle()).toContain('Luis Yauri');
-    expect(meta.getTag("name='description'")?.content).toContain('Portafolio profesional');
-    expect(meta.getTag("property='og:url'")?.content).toBe('https://luisyauri.dev/');
-    expect(document.querySelector("link[rel='canonical']")?.getAttribute('href')).toBe(
-      'https://luisyauri.dev/',
-    );
+      expect(title.getTitle()).toContain('Luis Yauri');
+    });
+
+    it('should set meta description', () => {
+      fixture.detectChanges();
+
+      const meta = TestBed.inject(Meta);
+
+      expect(meta.getTag("name='description'")?.content).toContain('Portafolio profesional');
+    });
+
+    it('should set og:url meta tag', () => {
+      fixture.detectChanges();
+
+      const meta = TestBed.inject(Meta);
+
+      expect(meta.getTag("property='og:url'")?.content).toBe('https://luisyauri.dev/');
+    });
+
+    it('should set canonical link', () => {
+      fixture.detectChanges();
+
+      const document = TestBed.inject(DOCUMENT);
+
+      expect(document.querySelector("link[rel='canonical']")?.getAttribute('href')).toBe(
+        'https://luisyauri.dev/',
+      );
+    });
   });
 });

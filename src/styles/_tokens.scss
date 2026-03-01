@@ -1,0 +1,46 @@
+:root {
+  /* Typography */
+  --font-family-base: 'Sora', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  /* Dark color system */
+  --color-bg-canvas: #090d1a;
+  --color-bg-surface: #11182b;
+  --color-bg-elevated: #17213a;
+  --color-bg-soft: #1d2945;
+
+  --color-text-primary: #f3f6ff;
+  --color-text-secondary: #b5c2df;
+  --color-text-muted: #8794b2;
+  --color-text-inverse: #071022;
+
+  --color-border-subtle: #233252;
+  --color-border-strong: #334971;
+
+  --color-brand-primary: #28d0b7;
+  --color-brand-primary-strong: #1bbca5;
+  --color-brand-secondary: #56a9ff;
+  --color-brand-glow: rgb(40 208 183 / 0.3);
+
+  --color-success: #5ad186;
+  --color-warning: #ffbe5c;
+  --color-danger: #ff7c87;
+
+  /* Layout and spacing */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  --shadow-sm: 0 6px 18px rgb(0 0 0 / 0.2);
+  --shadow-md: 0 14px 36px rgb(0 0 0 / 0.35);
+}

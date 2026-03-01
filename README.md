@@ -2,6 +2,65 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0.
 
+## Docker environments
+
+This repository is configured with separate Docker Compose files for local and production.
+
+- Base: `docker-compose.yml` (shared services)
+- Local: `docker-compose.local.yml`
+- Production: `docker-compose.prod.yml`
+
+### Local (Docker)
+
+Run local stack with `web + nginx` using `localhost`:
+
+```bash
+cp -f .env.example .env
+docker compose -f docker-compose.yml -f docker-compose.local.yml up -d --build
+```
+
+Open:
+
+- `http://localhost:8080` (or `LOCAL_NGINX_PORT` from `.env`)
+- `http://localhost:4000` (direct app port, optional)
+
+Stop:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.local.yml down
+```
+
+### Production (Docker + Nginx + TLS)
+
+Run production stack (web + nginx + certbot volumes):
+
+```bash
+cp -f .env.example .env
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+```
+
+Stop:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml down
+```
+
+Deploy update on server:
+
+```bash
+git pull origin main
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build --force-recreate
+docker compose -f docker-compose.yml -f docker-compose.prod.yml ps
+```
+
+### TLS renewal (server cron)
+
+Example daily renewal at 03:00:
+
+```cron
+0 3 * * * cd /root/apps/luisyauri-dev && docker compose -f docker-compose.yml -f docker-compose.prod.yml stop nginx && docker run --rm -p 80:80 -v /root/apps/luisyauri-dev/certbot/conf:/etc/letsencrypt certbot/certbot:latest renew && docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d nginx
+```
+
 ## Development server
 
 To start a local development server, run:

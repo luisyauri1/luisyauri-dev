@@ -1,25 +1,85 @@
+@use './../../../../../styles/mixins' as m;
+
 .home-page {
-  min-height: calc(100vh - 4.5rem);
   display: grid;
-  place-items: center;
+  align-items: center;
   padding-block: var(--space-12);
 }
 
-.home-page__card {
-  width: min(42rem, 100%);
-  padding: var(--space-10);
+.home-hero {
+  padding: var(--space-8) 0;
+  display: grid;
+  gap: var(--space-8);
+  grid-template-areas:
+    'media'
+    'content';
 }
 
-.home-page__eyebrow {
+.home-hero__media {
+  grid-area: media;
+  width: min(18rem, 100%);
+  margin-inline: auto;
+}
+
+.home-hero__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 0.8rem;
+  border: 1px solid rgb(255 255 255 / 0.14);
+  filter: saturate(0.92) contrast(1.02);
+}
+
+.home-hero__eyebrow {
   margin-bottom: var(--space-4);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-brand-primary);
+  color: #b9bfcb;
+}
+
+.home-hero__content {
+  grid-area: content;
 }
 
 h1 {
-  font-size: clamp(2rem, 7vw, 3.75rem);
+  margin-bottom: var(--space-4);
+  font-size: clamp(2rem, 8vw, 3.2rem);
   line-height: 1.05;
-  color: var(--color-text-primary);
+  color: #f5f7fb;
+}
+
+.home-hero__summary {
+  margin-bottom: var(--space-6);
+  max-width: 58ch;
+  color: #c8cfdb;
+  font-size: 1rem;
+}
+
+.home-hero__highlights {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: var(--space-3);
+  color: #b1b9c8;
+}
+
+.home-hero__highlights li::marker {
+  color: #8e95a4;
+}
+
+@include m.mq-up(md) {
+  .home-hero {
+    grid-template-columns: 1fr minmax(16rem, 24rem);
+    align-items: center;
+    gap: var(--space-10);
+    grid-template-areas: 'content media';
+  }
+
+  .home-hero__media {
+    width: min(22rem, 100%);
+    margin-inline: auto 0;
+  }
 }

@@ -28,6 +28,6 @@ describe('App', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
 
-    expect(compiled.querySelector('h1')?.textContent).toContain('Pagina de inicio');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Luis Yauri');
   });
 });

@@ -2,6 +2,11 @@ name: CD Manual
 
 on:
   workflow_dispatch:
+    inputs:
+      branch:
+        description: Branch to deploy
+        required: true
+        default: main
 
 concurrency:
   group: cd-production
@@ -29,7 +34,7 @@ jobs:
           SSH_PORT: ${{ secrets.SSH_PORT }}
           SSH_USER: ${{ secrets.SSH_USER }}
           APP_DIR: ${{ secrets.APP_DIR }}
-          DEPLOY_BRANCH: ${{ vars.DEPLOY_BRANCH || 'main' }}
+          DEPLOY_BRANCH: ${{ github.event.inputs.branch }}
         run: |
           ssh -p "${SSH_PORT:-22}" "${SSH_USER}@${SSH_HOST}" "
             set -e
@@ -37,6 +42,10 @@ jobs:
             git fetch --all
             git checkout '${DEPLOY_BRANCH}'
             git pull --ff-only origin '${DEPLOY_BRANCH}'
-            docker compose up -d --build
+            docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build --force-recreate
+            docker compose -f docker-compose.yml -f docker-compose.prod.yml ps
+            docker compose -f docker-compose.yml -f docker-compose.prod.yml logs --tail=100 nginx web
+            curl -I https://www.luisyauri.dev
+            curl -I https://luisyauri.dev
             docker image prune -f
           "

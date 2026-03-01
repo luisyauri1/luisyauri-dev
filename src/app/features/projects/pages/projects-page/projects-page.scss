@@ -1,0 +1,28 @@
+.projects-page {
+  padding-block: var(--space-12);
+}
+
+.projects-page__hero {
+  padding-block: var(--space-8);
+}
+
+.projects-page__eyebrow {
+  margin-bottom: var(--space-3);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+h1 {
+  margin: 0 0 var(--space-4);
+  font-size: clamp(1.9rem, 6vw, 3rem);
+  line-height: 1.1;
+  color: var(--color-text-primary);
+}
+
+p {
+  margin: 0;
+  max-width: 58ch;
+  color: var(--color-text-secondary);
+}

@@ -16,7 +16,6 @@ export class SiteHeader {
   protected readonly navItems: NavItem[] = [
     { label: 'Sobre mi', href: '#sobre-mi' },
     { label: 'Experiencia', href: '#experiencia' },
-    { label: 'Proyectos', href: '#proyectos' },
     { label: 'Skills', href: '#skills' },
   ];
 }

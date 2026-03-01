@@ -30,4 +30,16 @@ describe('App', () => {
 
     expect(compiled.querySelector('h1')?.textContent).toContain('Luis David Yauri Martinez');
   });
+
+  it('should navigate to projects page', async () => {
+    const fixture = TestBed.createComponent(App);
+    const router = TestBed.inject(Router);
+
+    await router.navigateByUrl('/projects');
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.querySelector('h1')?.textContent).toContain('Todos mis proyectos');
+  });
 });

@@ -1,0 +1,16 @@
+<section id="proyectos" class="projects-preview" aria-labelledby="projects-preview-title">
+  <p class="projects-preview__eyebrow">Portafolio</p>
+  <h2 id="projects-preview-title">Proyectos destacados</h2>
+
+  <div class="projects-preview__grid">
+    @for (project of projects; track project.title) {
+      <article class="project-card">
+        <h3>{{ project.title }}</h3>
+        <p class="project-card__stack">{{ project.stack }}</p>
+        <p>{{ project.summary }}</p>
+      </article>
+    }
+  </div>
+
+  <a class="projects-preview__cta" routerLink="/projects">Ver todos los proyectos</a>
+</section>

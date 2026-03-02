@@ -3,10 +3,13 @@
   <h2 id="skills-title">Skills Clave</h2>
 
   <div class="skills-block__grid">
-    @for (group of skillsGroups; track group.title) {
-      <article class="skills-card">
-        <h3>{{ group.title }}</h3>
-        <ul>
+    @for (group of skillsGroups; track group.title; let idx = $index) {
+      <article class="skills-card" [style.--card-index]="idx">
+        <header class="skills-card__head">
+          <h3>{{ group.title }}</h3>
+          <span class="skills-card__index">{{ idx + 1 < 10 ? '0' + (idx + 1) : idx + 1 }}</span>
+        </header>
+        <ul class="skills-card__list">
           @for (item of group.items; track item) {
             <li>{{ item }}</li>
           }

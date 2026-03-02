@@ -25,35 +25,94 @@ h2 {
 }
 
 .experience-card {
-  border: 1px solid var(--color-border-subtle);
-  border-radius: 0.55rem;
-  background: rgb(255 255 255 / 0.02);
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 0.7rem;
+  background:
+    linear-gradient(165deg, rgb(255 255 255 / 0.04) 0%, rgb(255 255 255 / 0.01) 58%),
+    rgb(255 255 255 / 0.01);
   padding: var(--space-5);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+  opacity: 0;
+  transform: translateY(0.35rem);
+  animation: experience-enter 360ms ease-out forwards;
+  animation-delay: calc(var(--card-index, 0) * 85ms);
+}
+
+.experience-card:hover {
+  border-color: rgb(255 255 255 / 0.24);
+  background:
+    linear-gradient(165deg, rgb(255 255 255 / 0.055) 0%, rgb(255 255 255 / 0.018) 58%),
+    rgb(255 255 255 / 0.016);
+  transform: translateY(-2px);
+}
+
+.experience-card__head {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
 }
 
 .experience-card h3 {
-  margin: 0 0 var(--space-2);
-  font-size: 1rem;
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--color-text-primary);
 }
 
 .experience-card__period {
-  margin: 0 0 var(--space-3);
-  font-size: 0.78rem;
+  display: inline-flex;
+  justify-self: start;
+  margin: 0;
+  font-size: 0.74rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-text-muted);
-  white-space: nowrap;
 }
 
-.experience-card p {
+.experience-card__description {
   margin: 0;
   color: var(--color-text-secondary);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 @include m.mq-up(md) {
   .experience-block__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+
+  .experience-card__head {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: var(--space-4);
+  }
+
+  .experience-card__period {
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-card {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
+
+@keyframes experience-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.35rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

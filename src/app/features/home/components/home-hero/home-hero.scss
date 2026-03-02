@@ -42,6 +42,47 @@
   filter: saturate(0.94) contrast(1.04);
 }
 
+.home-hero__social-list {
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.home-hero__social-list a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 255 255 / 0.16);
+  border-radius: 0.45rem;
+  min-width: 5.2rem;
+  height: 2.1rem;
+  padding: 0 0.8rem;
+  background: rgb(255 255 255 / 0.02);
+  color: rgb(245 245 245 / 0.88);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    transform 150ms ease;
+}
+
+.home-hero__social-list a:hover {
+  border-color: rgb(255 255 255 / 0.28);
+  background: rgb(255 255 255 / 0.05);
+  transform: translateY(-1px);
+}
+
+.home-hero__social-list a:focus-visible {
+  outline: 2px solid rgb(255 255 255 / 0.46);
+  outline-offset: 2px;
+}
+
 .home-hero__eyebrow {
   margin-bottom: var(--space-4);
   font-size: 0.72rem;
@@ -141,6 +182,10 @@
   .home-hero__media {
     width: min(22rem, 100%);
     margin-inline: auto 0;
+  }
+
+  .home-hero__social-list {
+    justify-content: flex-end;
   }
 
   .home-hero__summary {

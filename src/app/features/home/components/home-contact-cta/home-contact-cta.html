@@ -1,9 +1,20 @@
 <section id="contacto" class="contact-block" aria-labelledby="contact-title">
   <p class="contact-block__eyebrow">Contacto</p>
-  <h2 id="contact-title">Contacto de correo</h2>
-  <p class="contact-block__text">
-    Si deseas conversar sobre oportunidades profesionales, escríbeme directamente por correo.
-  </p>
+  <h2 id="contact-title">Hablemos de tu próximo proyecto</h2>
 
-  <a class="contact-block__mail" [href]="'mailto:' + email">{{ email }}</a>
+  <article class="contact-block__layout">
+    <div class="contact-block__intro">
+      <p class="contact-block__text">
+        Si buscas sumar un perfil en frontend, backend e IA aplicada para construir producto con
+        foco en calidad, escríbeme y coordinamos.
+      </p>
+    </div>
+
+    <a class="contact-block__mail" [href]="'mailto:' + email">
+      <span class="contact-block__label">Correo directo</span>
+      <strong>{{ email }}</strong>
+    </a>
+  </article>
+
+  <p class="contact-block__note">Respuesta habitual: 24-48h · Lima, Perú (GMT-5)</p>
 </section>

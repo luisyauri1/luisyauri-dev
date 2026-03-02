@@ -1,3 +1,5 @@
+@use 'mixins' as m;
+
 .contact-block {
   padding-block: var(--space-10) var(--space-12);
 }
@@ -10,30 +12,103 @@
   color: var(--color-text-muted);
 }
 
+.contact-block__layout {
+  border: 1px solid rgb(255 255 255 / 0.14);
+  border-radius: 0.75rem;
+  background: rgb(255 255 255 / 0.01);
+  padding: var(--space-6);
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+  opacity: 0;
+  transform: translateY(0.32rem);
+  animation: contact-in 380ms ease-out forwards;
+}
+
 h2 {
-  margin: 0 0 var(--space-4);
-  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin: 0 0 var(--space-8);
+  font-size: clamp(1.6rem, 6vw, 2.4rem);
   line-height: 1.12;
   color: var(--color-text-primary);
 }
 
 .contact-block__text {
-  margin: 0 0 var(--space-5);
-  max-width: 58ch;
+  margin: 0;
+  max-width: 56ch;
   color: var(--color-text-secondary);
+  line-height: 1.62;
 }
 
 .contact-block__mail {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid var(--color-border-strong);
-  border-radius: 0.4rem;
-  padding: 0.45rem 0.85rem;
-  color: var(--color-text-primary);
-  background: rgb(255 255 255 / 0.03);
+  justify-self: start;
+  display: inline-grid;
+  gap: 0.14rem;
+  border: 1px solid rgb(255 255 255 / 0.2);
+  border-radius: 0.58rem;
+  padding: 0.58rem 0.88rem;
+  background: rgb(255 255 255 / 0.02);
+  text-decoration: none;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    transform 150ms ease;
 }
 
 .contact-block__mail:hover {
-  border-color: #5a5a5a;
-  background: rgb(255 255 255 / 0.06);
+  border-color: var(--color-brand-secondary);
+  background: rgb(255 255 255 / 0.05);
+  transform: translateY(-1px);
+}
+
+.contact-block__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.contact-block__mail strong {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-brand-primary-strong);
+}
+
+.contact-block__note {
+  margin: var(--space-4) 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.81rem;
+  letter-spacing: 0.03em;
+}
+
+@include m.mq-up(md) {
+  .contact-block__layout {
+    grid-template-columns: 1fr auto;
+    gap: var(--space-8);
+    padding: var(--space-8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-block__layout {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .contact-block__mail {
+    transition: none;
+  }
+}
+
+@keyframes contact-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.32rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
